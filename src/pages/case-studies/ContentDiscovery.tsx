@@ -72,6 +72,7 @@ const CaseStudyTitle = styled.h1`
   @media (max-width: 768px) {
     font-size: clamp(2rem, 8vw, 2.8rem);
     line-height: 1.2;
+    letter-spacing: -0.5px;
   }
   @media (max-width: 480px) {
     font-size: clamp(1.8rem, 9vw, 2.4rem);

@@ -85,6 +85,9 @@ const MobileNav = styled.div`
   width: 100%;
   justify-content: flex-end;
   padding: 0 1rem;
+  @media (max-width: 768px) {
+    padding-right: 0;
+  }
 `;
 
 const NavLink = styled(Link)`
