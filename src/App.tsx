@@ -45,11 +45,19 @@ const LogoSpace = styled.img<{ white?: boolean }>`
   height: 50px;
   object-fit: contain;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 46px;
+    height: 46px;
+  }
 `;
 
 const LogoSpaceLarge = styled(LogoSpace)`
   width: 60px;
   height: 60px;
+  @media (max-width: 768px) {
+    width: 55.2px;
+    height: 55.2px;
+  }
 `;
 
 const NameText = styled.span`

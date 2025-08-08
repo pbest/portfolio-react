@@ -392,6 +392,9 @@ const BodyText = styled.p`
   color: #333;
   margin-bottom: 2rem;
   font-family: 'TT Ramillas', serif;
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const HighlightList = styled.ul`
@@ -410,6 +413,9 @@ const HighlightListItem = styled.li`
   font-size: 1.1rem;
   line-height: 1.6;
   color: #444;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   &::before {
     content: '';
@@ -551,7 +557,7 @@ const StarTable = styled.table`
       border-bottom: 1px solid #eee !important;
       box-sizing: border-box !important;
       max-width: none !important;
-      font-weight: normal !important;
+      font-weight: 300 !important;
     }
     
     td:last-child {
@@ -1365,6 +1371,20 @@ const DataVizFootnoteDark = styled.div`
   text-align: left;
   margin: 0.5rem 0 0 0;
   font-family: 'PolySans', 'Fira Sans', 'Arial', sans-serif;
+  font-weight: 300;
+`;
+
+const AIStatement = styled.div`
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  
+  @media (max-width: 768px) {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const OutcomesSection = styled.div`
@@ -1531,6 +1551,10 @@ const ScanListBullet = styled.span`
   margin-right: 1rem;
   margin-top: 0.18em;
   line-height: 1;
+
+  @media (max-width: 768px) {
+    margin-right: 0.65rem;
+  }
 `;
 // Reuse ScanListBullet for WhyItem bullets
 // Update WhyGrid and WhyItem to match ScanList and ScanListItem
@@ -1555,7 +1579,7 @@ const WhyItem = styled.li`
   font-family: 'TT Ramillas', serif;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 `;
 const WhyTitle = styled.h2`
@@ -1575,8 +1599,11 @@ const HeroPhoneMockupContainer = styled.div`
   box-shadow: 0 6px 32px 0 rgba(30,40,90,0.13), 0 1.5px 6px 0 rgba(30,40,90,0.08);
   border-radius: 32px;
   background: #fff;
+  @media (max-width: 768px) {
+    max-width: 315px;
+  }
   @media (max-width: 390px) {
-    max-width: 270px;
+    max-width: 243px;
   }
 `;
 const HeroPhoneVideo = styled.video`
@@ -2039,15 +2066,9 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
         </div>
 
         <Section id="context" ref={sectionRefs.context}>
-          <div style={{ 
-            fontStyle: 'italic', 
-            color: '#666', 
-            fontSize: '0.9rem', 
-            marginBottom: '1rem',
-            lineHeight: '1.4'
-          }}>
+          <AIStatement>
             Statement on AI use: Every em dash in this case study is my own. I used ChatGPT for feedback on structure and Cursor to build this page.
-          </div>
+          </AIStatement>
           <SectionTitle first>Context &amp; Challenge</SectionTitle>
           <BodyText>
             The Washington Post was falling behind evolving reader expectations.  News fatigue after peak of COVID and 2020 election led to <span style={{ background: '#fff7c2', borderRadius: '6px', padding: '0.1em 0.3em' }}>steep drop-offs in casual and anonymous readership</span>, shrinking the top of the funnel.   The app plays a critical role in retention as subscribers who use it regularly are far less likely to cancel
