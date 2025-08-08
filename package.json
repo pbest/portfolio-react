@@ -2,7 +2,7 @@
   "name": "portfolio-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://paul.best/v2",
+  "homepage": "https://v2.paul.best",
   "dependencies": {
     "@types/node": "^16.18.0",
     "@types/react": "^18.0.0",
