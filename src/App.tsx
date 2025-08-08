@@ -114,7 +114,7 @@ const HomeHero = styled.section`
 `;
 
 const Headline = styled.h1`
-  font-family: 'TT Ramillas', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 7vw;
   font-weight: 500;
   margin-bottom: 1rem;
