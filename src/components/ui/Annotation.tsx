@@ -45,6 +45,7 @@ const Popover = styled.div<{ layout?: 'overlay' | 'side-right' | 'side-left' }>`
   width: 280px;
   font-family: 'Polysans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 0.95rem;
+  font-weight: 300;
   line-height: 1.5;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   z-index: 10;

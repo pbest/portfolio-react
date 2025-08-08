@@ -44,7 +44,7 @@ const NavItem = styled.button<NavItemProps>`
   border-radius: 99px;
   font-family: 'PolySans', sans-serif;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: ${props => (props.active ? '500' : '300')};
   cursor: pointer;
   transition: all 0.3s ease;
   flex: 1;

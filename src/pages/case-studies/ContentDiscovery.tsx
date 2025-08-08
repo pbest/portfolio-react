@@ -328,7 +328,7 @@ const KeyInitiativeBold = styled.span`
 `;
 
 const KeyInitiativeGray = styled.span`
-  font-weight: 500;
+  font-weight: 300;
   color: rgb(85, 85, 85);
 `;
 
@@ -513,6 +513,7 @@ const StarTable = styled.table`
     color: #555;
     font-size: 1rem;
     font-family: 'PolySans', sans-serif;
+    font-weight: 300;
     line-height: 1.6;
   }
 
@@ -643,6 +644,7 @@ const RoleTable = styled.table`
 
   tbody td:nth-child(2) {
     font-family: 'PolySans', sans-serif;
+    font-weight: 300;
   }
 
   td {
@@ -1291,7 +1293,7 @@ const DataVizLabel = styled.div`
   font-size: 1rem;
   color: #222;
   font-family: 'PolySans', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 0;
 `;
 
@@ -1354,6 +1356,7 @@ const DataVizFootnote = styled.div`
   text-align: left;
   margin: 0.5rem 0 0 0;
   font-family: 'PolySans', 'Fira Sans', 'Arial', sans-serif;
+  font-weight: 300;
 `;
 
 const DataVizFootnoteDark = styled.div`
