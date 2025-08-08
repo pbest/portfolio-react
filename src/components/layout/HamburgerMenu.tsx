@@ -16,13 +16,17 @@ const HamburgerButton = styled.button<{ white?: boolean }>`
   justify-content: center;
   align-items: flex-end;
   z-index: 200;
-  position: fixed;
-  top: 18px;
-  right: 24px;
+  position: static;
   transition: all 0.3s ease;
   margin: 0;
   padding: 0;
   border-radius: 0;
+
+  @media (min-width: 768px) {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+  }
   
   &:hover {
     .bar {
