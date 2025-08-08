@@ -486,7 +486,7 @@ const SystemCase = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/v2">
       <MotionProvider>
         <AppContent />
       </MotionProvider>
