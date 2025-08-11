@@ -519,7 +519,7 @@ function AppContent() {
                 return (
                   <NavWrapper white={useWhite}>
                     <NavLeft>
-                      <LogoSpace src={useWhite ? "/images/logo-light.png" : "/images/logo-dark.png"} alt="Paul Best Logo" white={useWhite} onClick={() => navigate('/')} />
+                      <LogoSpace src={useWhite ? "/images/logo-light.png" : "/images/logo-dark.png"} alt="Paul Best Logo" white={useWhite} onClick={() => window.location.href = 'https://paul.best'} />
                     </NavLeft>
                     <MobileNav>
                       <HamburgerMenu white={useWhite} open={menuOpen} setOpen={setMenuOpen} />
@@ -536,7 +536,7 @@ function AppContent() {
             <>
               <NavWrapper>
                 <NavLeft>
-                  <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" onClick={() => navigate('/')} />
+                  <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" onClick={() => window.location.href = 'https://paul.best'} />
                 </NavLeft>
                 <MobileNav>
                   <HamburgerMenu />

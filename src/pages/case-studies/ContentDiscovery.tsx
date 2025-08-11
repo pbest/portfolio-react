@@ -333,6 +333,12 @@ const KeyInitiativeGray = styled.span`
   color: rgb(85, 85, 85);
 `;
 
+const StorytellingTextSecondary = styled.p`
+  font-weight: 300;
+  color: rgb(85, 85, 85);
+  font-family: 'PolySans', 'Fira Sans', 'Arial', sans-serif;
+`;
+
 const KeyInitiativeDesc = styled.div`
     font-size: 1rem;
   color: #fff;
@@ -1378,13 +1384,14 @@ const DataVizFootnoteDark = styled.div`
 const AIStatement = styled.div`
   font-style: italic;
   color: #666;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   line-height: 1.4;
+  font-family: 'PolySans', 'Fira Sans', 'Arial', sans-serif;
+  font-weight: 400;
   
   @media (max-width: 768px) {
-    margin-top: 6rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -2067,9 +2074,6 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
         </div>
 
         <Section id="context" ref={sectionRefs.context}>
-          <AIStatement>
-            Statement on AI use: Every em dash in this case study is my own. I used ChatGPT for feedback on structure and Cursor to build this page.
-          </AIStatement>
           <SectionTitle first>Context &amp; Challenge</SectionTitle>
           <BodyText>
             The Washington Post was falling behind evolving reader expectations.  News fatigue after peak of COVID and 2020 election led to <span style={{ background: '#fff7c2', borderRadius: '6px', padding: '0.1em 0.3em' }}>steep drop-offs in casual and anonymous readership</span>, shrinking the top of the funnel.   The app plays a critical role in retention as subscribers who use it regularly are far less likely to cancel
@@ -2285,9 +2289,9 @@ We used the dual lens of editorial integrity and user-centered personalization, 
               </StorytellingVisual>
               <StorytellingText>
                 <h4>'Live Updates'</h4>
-                <p>
+                <StorytellingTextSecondary>
                   Fast-scrolling tickers and live video package for developing stories. 
-                </p>
+                </StorytellingTextSecondary>
               </StorytellingText>
             </FeatureCard>
             <FeatureCard>
@@ -2309,7 +2313,7 @@ We used the dual lens of editorial integrity and user-centered personalization, 
               </StorytellingVisual>
               <StorytellingText>
                 <h4>Vertical video</h4>
-                <p>More engaging formats that can be re-purposed on TikTok/Instagram.</p>
+                <StorytellingTextSecondary>More engaging formats that can be re-purposed on TikTok/Instagram.</StorytellingTextSecondary>
               </StorytellingText>
             </FeatureCard>
             <FeatureCard>
@@ -2331,7 +2335,7 @@ We used the dual lens of editorial integrity and user-centered personalization, 
               </StorytellingVisual>
               <StorytellingText>
                 <h4>Photo galleries</h4>
-                <p>Carousels to package a more visual story</p>
+                <StorytellingTextSecondary>Carousels to package a more visual story</StorytellingTextSecondary>
               </StorytellingText>
             </FeatureCard>
             <FeatureCard>
@@ -2353,7 +2357,7 @@ We used the dual lens of editorial integrity and user-centered personalization, 
               </StorytellingVisual>
               <StorytellingText>
                 <h4>Immersive Visuals</h4>
-                <p>Custom presentations for designed stories </p>
+                <StorytellingTextSecondary>Custom presentations for designed stories</StorytellingTextSecondary>
               </StorytellingText>
             </FeatureCard>
           </FeatureGridWide>
@@ -2476,13 +2480,17 @@ We used the dual lens of editorial integrity and user-centered personalization, 
           <BodyText>
             This project redefined how we approached discovery; not just as a homepage problem, but as a system for guiding behavior, trust, and habit.  Here are some of the things I took away from this project and opportunities for future improvements:
           </BodyText>
-          <HighlightList>
-            <HighlightListItem>Empathy and strategic framing can unlock culture change — in this case, we shifted editorial perspectives on personalization by rooting our approach in shared goals.</HighlightListItem>
-            <HighlightListItem>Leading through ambiguity often means bridging cultures — product, editorial, and engineering — and giving each a voice in the outcome.</HighlightListItem>
-            <HighlightListItem>Prototypes helped us de-risk high-stakes conversations — by giving stakeholders clarity and confidence around unfamiliar design choices.</HighlightListItem>      
-            <HighlightListItem>I would have included marketing earlier -- for a product looking to return to growth, its important to tie the new launches to a clear customer message otherwise you miss an opportunity to change perception and build top of the funnel.</HighlightListItem>
-            <HighlightListItem>One thing our data supported but we weren't able to explore was better dayparting: people have different needs at 8am on a weekday vs a Saturday afternoon.</HighlightListItem>
-          </HighlightList>
+          <WhyGrid>
+            <WhyItem><ScanListBullet style={{ transform: 'rotate(0deg)' }}>✦</ScanListBullet>Empathy and strategic framing can unlock culture change — in this case, we shifted editorial perspectives on personalization by rooting our approach in shared goals.</WhyItem>
+            <WhyItem><ScanListBullet style={{ transform: 'rotate(20deg)' }}>✦</ScanListBullet>Leading through ambiguity often means bridging cultures — product, editorial, and engineering — and giving each a voice in the outcome.</WhyItem>
+            <WhyItem><ScanListBullet style={{ transform: 'rotate(-20deg)' }}>✦</ScanListBullet>Prototypes helped us de-risk high-stakes conversations — by giving stakeholders clarity and confidence around unfamiliar design choices.</WhyItem>      
+            <WhyItem><ScanListBullet style={{ transform: 'rotate(10deg)' }}>✦</ScanListBullet>I would have included marketing earlier -- for a product looking to return to growth, its important to tie the new launches to a clear customer message otherwise you miss an opportunity to change perception and build top of the funnel.</WhyItem>
+            <WhyItem><ScanListBullet style={{ transform: 'rotate(-10deg)' }}>✦</ScanListBullet>One thing our data supported but we weren't able to explore was better dayparting: people have different needs at 8am on a weekday vs a Saturday afternoon.</WhyItem>
+          </WhyGrid>
+          
+          <AIStatement>
+            Statement on AI use: Every em dash in this case study is my own. I used ChatGPT for feedback on structure and Cursor to build this page.
+          </AIStatement>
           {/* <NavRow>
             <NavButton onClick={() => navigate('/work')}>← Back to Work</NavButton>
             <NavButton onClick={() => navigate('/work/audio')}>Next: AI Listening →</NavButton>

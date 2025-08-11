@@ -112,6 +112,23 @@ const MenuLink = styled(Link)<{ open: boolean; index: number }>`
   }
 `;
 
+const MenuLinkExternal = styled.a<{ open: boolean; index: number }>`
+  color: #000;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-family: 'TT Ramillas', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  opacity: ${({ open }) => (open ? 1 : 0)};
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(20px)')};
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition-delay: ${({ open, index }) => (open ? `${0.2 + index * 0.1}s` : '0s')};
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const TiltOverlay = React.forwardRef(function TiltOverlay(props: any, ref: any) {
   const { open, ...rest } = props;
   const tiltRef = useRef<HTMLDivElement | null>(null);
@@ -162,11 +179,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ white, open: controlledOp
       <Scrim open={open} onClick={handleClose} />
       <Overlay open={open} onClick={handleClose}>
         <MenuLinks onClick={e => e.stopPropagation()}>
-          <MenuLink to="/" onClick={handleClose} open={open} index={0}>Home</MenuLink>
-          <MenuLink to="/work" onClick={handleClose} open={open} index={1}>Work</MenuLink>
-          <MenuLink to="/about" onClick={handleClose} open={open} index={2}>About</MenuLink>
-          <MenuLink to="/resume" onClick={handleClose} open={open} index={3}>Resume</MenuLink>
-          <MenuLink to="/contact" onClick={handleClose} open={open} index={4}>Contact</MenuLink>
+          <MenuLink to="https://paul.best" onClick={handleClose} open={open} index={0}>Home</MenuLink>
+          <MenuLink to="https://paul.best/#work" onClick={handleClose} open={open} index={1}>Case Studies</MenuLink>
+          <MenuLink to="https://paul.best/#about" onClick={handleClose} open={open} index={2}>About</MenuLink>
+          <MenuLinkExternal href="/resume-PaulBest.pdf" target="_blank" rel="noopener noreferrer" onClick={handleClose} open={open} index={3}>Resume</MenuLinkExternal>
+          <MenuLink to="https://paul.best/#contact" onClick={handleClose} open={open} index={4}>Contact</MenuLink>
         </MenuLinks>
       </Overlay>
     </>

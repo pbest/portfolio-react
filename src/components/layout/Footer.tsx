@@ -14,6 +14,12 @@ const FooterContainer = styled.footer`
   text-align: center;
   padding: 2rem;
   position: relative;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    min-height: 100vh;
+    justify-content: space-between;
+  }
 `;
 
 const FooterGrid = styled.div`
@@ -62,6 +68,16 @@ const SettingsContainer = styled.div`
   width: calc(100% - 4rem);
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    width: calc(100% - 2rem);
+  }
 `;
 
 const MotionToggle = styled.button`
@@ -83,6 +99,12 @@ const AboutSection = styled.div`
   text-align: left;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+  }
 `;
 
 const AboutTitle = styled.h2`
@@ -91,6 +113,15 @@ const AboutTitle = styled.h2`
   font-weight: 500;
   color: #fff;
   line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    line-height: 1.3;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const AboutBlurb = styled.p`
@@ -111,6 +142,16 @@ const AboutBlurb = styled.p`
       border-bottom-color: #fff;
     }
   }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ActionButtons = styled.div`
@@ -118,6 +159,10 @@ const ActionButtons = styled.div`
   gap: 1rem;
   justify-content: flex-start;
   flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const ActionButton = styled.a`
@@ -138,7 +183,12 @@ const ActionButton = styled.a`
     background: #444;
     border-color: #666;
     color: #fff;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="16" font-size="16">↗️</text></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www/w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="16" font-size="16">↗️</text></svg>'), auto;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
   }
 `;
 
