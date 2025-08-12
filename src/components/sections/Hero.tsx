@@ -8,6 +8,8 @@ const HeroSection = styled(motion.section)`
 
 const Title = styled.h1`
   font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 `;
 
