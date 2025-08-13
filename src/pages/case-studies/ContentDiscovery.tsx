@@ -1851,10 +1851,37 @@ const ContentDiscoveryCaseStudy: React.FC<ContentDiscoveryCaseStudyProps> = ({ r
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Custom easing function for smooth scrolling
+  const easeInOutCubic = (t: number): number => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  };
+
+  const smoothScrollTo = (targetPosition: number, duration: number = 800) => {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easedProgress = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition + distance * easedProgress);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   const handleNavItemClick = (id: string) => {
     const ref = sectionRefs[id as keyof typeof sectionRefs];
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetPosition = ref.current.offsetTop - 25; // Further reduced offset for even closer positioning
+      smoothScrollTo(targetPosition);
     }
   };
 
@@ -1862,14 +1889,10 @@ const ContentDiscoveryCaseStudy: React.FC<ContentDiscoveryCaseStudyProps> = ({ r
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100; // Offset to account for fixed navigation
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offset = 25; // Further reduced offset for even closer positioning
+      const targetPosition = element.offsetTop - offset;
       
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      smoothScrollTo(targetPosition);
 
       // Trigger habit tiles animation if clicking on habit-tiles anchor
       if (id === 'habit-tiles') {
