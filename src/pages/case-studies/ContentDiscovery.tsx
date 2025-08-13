@@ -17,90 +17,17 @@ const ACCENT_COLOR_5 = 'rgba(96, 97, 236, 0.05)';
 const SHADOW_500 = 'rgba(50, 50, 93, 0.08) 0px 50px 100px -20px, rgba(0, 0, 0, 0.15) 0px 30px 60px -30px';
 
 const HeroContainer = styled.div`
+  background: linear-gradient(rgb(139 90 255 / 35%), rgba(246, 255, 132, 0.07)), radial-gradient(at center top, rgb(255 167 35), rgb(255, 255, 255)) center top;
   padding: 4rem 0 7rem 0;
   border-bottom: 1px solid #eee;
-  margin-top: -10rem;
+  margin: -7rem 1rem 0 1rem;
+  border-radius: 1rem 1rem 0 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  animation: gradientRotate 8s ease-in-out infinite;
   
-  @keyframes gradientRotate {
-    0% { background: linear-gradient(240deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    1.33% { background: linear-gradient(244.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    2.67% { background: linear-gradient(249.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    4% { background: linear-gradient(254.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    5.33% { background: linear-gradient(259.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    6.67% { background: linear-gradient(264deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    8% { background: linear-gradient(268.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    9.33% { background: linear-gradient(273.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    10.67% { background: linear-gradient(278.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    12% { background: linear-gradient(283.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    13.33% { background: linear-gradient(288deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    14.67% { background: linear-gradient(292.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    16% { background: linear-gradient(297.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    17.33% { background: linear-gradient(302.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    18.67% { background: linear-gradient(307.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    20% { background: linear-gradient(312deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    21.33% { background: linear-gradient(316.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    22.67% { background: linear-gradient(321.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    24% { background: linear-gradient(326.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    25.33% { background: linear-gradient(331.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    26.67% { background: linear-gradient(336deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    28% { background: linear-gradient(340.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    29.33% { background: linear-gradient(345.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    30.67% { background: linear-gradient(350.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    32% { background: linear-gradient(355.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    33.33% { background: linear-gradient(360deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    34.67% { background: linear-gradient(364.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    36% { background: linear-gradient(369.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    37.33% { background: linear-gradient(374.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    38.67% { background: linear-gradient(379.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    40% { background: linear-gradient(384deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    41.33% { background: linear-gradient(388.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    42.67% { background: linear-gradient(393.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    44% { background: linear-gradient(398.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    45.33% { background: linear-gradient(403.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    46.67% { background: linear-gradient(408deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    48% { background: linear-gradient(412.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    49.33% { background: linear-gradient(417.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    50.67% { background: linear-gradient(422.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    52% { background: linear-gradient(427.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    53.33% { background: linear-gradient(432deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    54.67% { background: linear-gradient(436.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    56% { background: linear-gradient(441.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    57.33% { background: linear-gradient(446.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    58.67% { background: linear-gradient(451.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    60% { background: linear-gradient(456deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    61.33% { background: linear-gradient(460.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    62.67% { background: linear-gradient(465.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    64% { background: linear-gradient(470.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    65.33% { background: linear-gradient(475.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    66.67% { background: linear-gradient(480deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    68% { background: linear-gradient(484.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    69.33% { background: linear-gradient(489.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    70.67% { background: linear-gradient(494.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    72% { background: linear-gradient(499.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    73.33% { background: linear-gradient(504deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    74.67% { background: linear-gradient(508.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    76% { background: linear-gradient(513.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    77.33% { background: linear-gradient(518.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    78.67% { background: linear-gradient(523.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    80% { background: linear-gradient(528deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    81.33% { background: linear-gradient(532.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    82.67% { background: linear-gradient(537.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    84% { background: linear-gradient(542.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    85.33% { background: linear-gradient(547.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    86.67% { background: linear-gradient(552deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    88% { background: linear-gradient(556.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    89.33% { background: linear-gradient(561.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    90.67% { background: linear-gradient(566.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    92% { background: linear-gradient(571.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    93.33% { background: linear-gradient(576deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    94.67% { background: linear-gradient(580.8deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    96% { background: linear-gradient(585.6deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    97.33% { background: linear-gradient(590.4deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    98.67% { background: linear-gradient(595.2deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
-    100% { background: linear-gradient(600deg, rgb(119, 120, 253), rgb(132 179 235) 69%); }
+  @media (max-width: 768px) {
+    margin: -7rem 0 0 0;
+    border-radius: 0;
   }
 `;
 
@@ -108,29 +35,29 @@ const CaseStudyContainer = styled.div`
   width: 100%;
   padding-bottom: 5rem;
   margin-top: 1rem;
-  background: rgb(249, 249, 252);
+  background: linear-gradient(180deg, #fff 0%, #fff 11%, rgb(249, 249, 252) 16%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 `;
 
 const HeroSection = styled.section`
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 14rem 1rem 2rem 1rem;
+  padding: 9rem 1rem 0 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   @media (max-width: 768px) {
-    padding: 10rem 1.5rem 2rem 1.5rem;
+    padding: 8rem 1.5rem 2rem 1.5rem;
     gap: 1.25rem;
   }
 `;
 
 const EyebrowChip = styled.div`
   display: inline-block;
-  background: rgba(0,0,0,0.15);
+  background: rgb(157 46 0 / 11%);
   color: #fff;
   font-family: 'Space Mono', 'Fira Mono', 'Menlo', monospace;
   font-size: 0.8rem;
@@ -144,13 +71,13 @@ const EyebrowChip = styled.div`
 
 const CaseStudyTitle = styled.h1`
   font-family: 'TT Ramillas', serif;
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: 4.5vw;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: #fff;
+  color: #000;
   @media (max-width: 768px) {
-    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-size: 6vw;
     line-height: 1.2;
     letter-spacing: -0.5px;
   }
@@ -163,18 +90,20 @@ const CaseStudyTitle = styled.h1`
 `;
 
 const CaseStudySubtitle = styled.h2`
-  font-family: 'TT Ramillas', serif;
-  font-size: clamp(20px, 2.5vw, 24px);
-  font-weight: 400;
+  font-family: 'PolySans', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
   line-height: 1.4;
   color: #0b0b0b;
+  opacity: 0.7;
   max-width: 750px;
   @media (max-width: 768px) {
     line-height: 1.5;
     max-width: 100%;
+    font-size: 17px;
   }
   @media (max-width: 480px) {
-    font-size: clamp(18px, 3vw, 22px);
+    font-size: 17px;
   }
   @media (max-width: 390px) {
     font-size: clamp(16px, 3.5vw, 20px);
@@ -235,6 +164,30 @@ const HeroImage = styled.div`
   justify-content: center;
   gap: 2rem;
   padding-bottom: 5rem;
+  position: relative;
+`;
+
+const HeroCircleBackground = styled.div<{ opacity: number }>`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 30%, rgb(255 220 107) 60%, rgb(78, 205, 196) 80%, rgb(69, 183, 209) 90%, rgb(150, 206, 180) 95%, rgb(221 138 255) 100%);
+  z-index: 0;
+  opacity: ${props => props.opacity};
+  filter: blur(20px);
+  transition: opacity 0.3s ease-out;
+  @media (max-width: 768px) {
+    width: 560px;
+    height: 560px;
+  }
+  @media (max-width: 480px) {
+    width: 420px;
+    height: 420px;
+  }
 `;
 
 type ContentWidth = 'body' | 'break-out' | 'full-bleed';
@@ -560,140 +513,213 @@ const CaseStudyImage = styled.img`
   border: 1px solid #ddd;
 `;
 
-const StarTable = styled.table`
+const TLDRCard = styled.div`
   margin: 2.5rem 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #ddd;
+  border-radius: 12px;
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
   background: #fff;
+  box-shadow: ${SHADOW_500};
+  overflow: hidden;
 
-  thead th {
-    background: #f3f3f6;
-    color: #111;
-    font-family: 'PolySans', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: none;
-    letter-spacing: normal;
-    padding: 1rem 1.25rem;
+  @media (max-width: 768px) {
+    display: block !important;
+    border: 1px solid #e0e0e0 !important;
+    background: #fff !important;
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    box-shadow: none !important;
+  }
+`;
+
+const TLDRCardContent = styled.div`
+  display: grid;
+  grid-template-columns: 1.618fr 1fr;
+  gap: 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+`;
+
+const TLDRSection = styled.div`
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  
+  &:first-child::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    bottom: 2rem;
+    width: 1px;
+    background: #e0e0e0;
+  }
+  
+  @media (max-width: 768px) {
     border: none;
-    border-right: 1px solid #ddd;
-  }
-
-  thead th:last-child {
-    border-right: none;
-  }
-
-  th, td {
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
     text-align: left;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    
+    &:first-child::after {
+      display: none;
+    }
   }
+`;
 
-  th:last-child, td:last-child {
-    border-right: none;
-  }
+const TLDRSectionTitle = styled.h3`
+  font-family: 'PolySans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0.5rem 0 0.5rem 0;
+  text-transform: none;
+  letter-spacing: normal;
+`;
 
-  tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  td {
+const TLDRText = styled.div`
     color: #555;
     font-size: 1rem;
     font-family: 'PolySans', sans-serif;
     font-weight: 300;
     line-height: 1.6;
+  margin-bottom: 1rem;
+  
+  &:last-child {
+    margin-bottom: 0;
   }
+  
+  &.list-lead-in {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+`;
 
-  @media (max-width: 768px) {
-    display: block !important;
-    border: none !important;
-    background: none !important;
-    width: 93% !important;
-    margin-left: 1rem !important;
-    table-layout: auto !important;
-    
-    thead {
-      display: none !important;
-    }
-    
-    tbody {
-      display: block !important;
-    }
-    
-    tr {
-      display: block !important;
-      margin-bottom: 1.5rem !important;
-      border: 1px solid #ddd !important;
-      border-radius: 8px !important;
-      background: #fff !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-      width: 100% !important;
-    }
-    
-    td {
-      display: block !important;
-      width: 100% !important;
-      padding: 0 1.25rem 1rem 1.25rem !important;
-      border: none !important;
-      border-bottom: 1px solid #eee !important;
-      box-sizing: border-box !important;
-      max-width: none !important;
-      font-weight: 300 !important;
-    }
-    
-    td:last-child {
-      border-bottom: none !important;
-    }
-    
-    tbody td:first-child::before {
-      content: "The Situation" !important;
-      display: block !important;
-      background: #f3f3f6 !important;
-      color: #111 !important;
-      font-family: 'PolySans', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      padding: 1rem 1.25rem !important;
-      border-radius: 8px 8px 0 0 !important;
-      margin-left: -1.25rem !important;
-      margin-right: -1.25rem !important;
-      margin-bottom: 1rem !important;
-    }
-    
-    tbody td:nth-child(2)::before {
-      content: "My Actions" !important;
-      display: block !important;
-      background: #f3f3f6 !important;
-      color: #111 !important;
-      font-family: 'PolySans', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      padding: 1rem 1.25rem !important;
-      margin-left: -1.25rem !important;
-      margin-right: -1.25rem !important;
-      margin-bottom: 1rem !important;
-    }
-    
-    tbody td:nth-child(3)::before {
-      content: "Results" !important;
-      display: block !important;
-      background: #f3f3f6 !important;
-      color: #111 !important;
-      font-family: 'PolySans', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      padding: 1rem 1.25rem !important;
-      margin-left: -1.25rem !important;
-      margin-right: -1.25rem !important;
-      margin-bottom: 1rem !important;
-    }
+const TLDRIntroText = styled.div`
+  color: #000;
+  font-size: 1.25rem;
+  font-family: 'TT Ramillas', serif;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
   }
+`;
+
+const TLDRList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const TLDRListItem = styled.li`
+  color: #555;
+  font-size: 1rem;
+  font-family: 'PolySans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    background: #bbb;
+    border-radius: 50%;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const TLDRNumberedList = styled.ol`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: item;
+  margin-top: auto;
+`;
+
+const TLDRNumberedItem = styled.li`
+  color: #555;
+  font-size: 1rem;
+  font-family: 'PolySans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 2.5rem;
+  position: relative;
+  counter-increment: item;
+  
+  &:before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #000;
+    line-height: 1;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const TLDRResultCard = styled.div`
+  background: rgb(249, 249, 252);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const TLDRResultMetric = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(119, 120, 253);
+  font-family: 'PolySans', sans-serif;
+  line-height: 1;
+  min-width: 60px;
+`;
+
+const TLDRResultText = styled.div`
+  font-size: 0.9rem;
+  color: rgb(85, 85, 85);
+  font-family: 'PolySans', sans-serif;
+  font-weight: 300;
+  line-height: 1.4;
+  flex: 1;
 `;
 
 const RoleTable = styled.table`
@@ -1730,6 +1756,7 @@ const ContentDiscoveryCaseStudy: React.FC<ContentDiscoveryCaseStudyProps> = ({ r
   const [activeSection, setActiveSection] = useState('');
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [showStarTable, setShowStarTable] = useState(false);
+  const [circleOpacity, setCircleOpacity] = useState(0.42);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
@@ -1753,6 +1780,13 @@ const ContentDiscoveryCaseStudy: React.FC<ContentDiscoveryCaseStudyProps> = ({ r
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
         setNavWhite(rect.bottom > 64); // 64px nav height
+        
+        // Calculate circle opacity based on scroll position from top of screen
+        const scrollY = window.scrollY;
+        const scrollProgress = Math.max(0, Math.min(1, scrollY / 500));
+        const newOpacity = Math.max(0, 0.42 - scrollProgress * 0.42);
+        console.log('Scroll debug:', { scrollY, scrollProgress, newOpacity });
+        setCircleOpacity(newOpacity);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -1861,6 +1895,7 @@ const ContentDiscoveryCaseStudy: React.FC<ContentDiscoveryCaseStudyProps> = ({ r
 I led a redesign of The Washington Post's app feed to make discovery feel personal, guided, and habit-forming — boosting engagement across app, web, and email</CaseStudySubtitle>
           </HeroSection>
           <HeroImage>
+            <HeroCircleBackground opacity={circleOpacity} />
             <HeroPhoneMockupContainer>
               <HeroPhoneVideo
                 ref={heroVideoRef}
@@ -1888,13 +1923,14 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
               fontWeight: '700', 
               letterSpacing: isMobile() ? 'normal' : '0.12em', 
               textTransform: isMobile() ? 'none' : 'uppercase',
-              color: '#fff',
+              color: '#000',
               marginBottom: '-1.5rem',
               textAlign: isMobile() ? 'center' : 'left',
               cursor: isMobile() ? 'pointer' : 'default',
               userSelect: 'none',
               ...(isMobile() && {
-                background: 'rgba(4, 41, 78, 0.5)',
+                background: 'transparent',
+                border: '1px solid rgba(0, 0, 0, 0.25)',
                 padding: '0.75rem 1rem',
                 borderRadius: '8px',
                 marginLeft: 'auto',
@@ -1907,249 +1943,34 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
             {isMobile() ? (showStarTable ? 'Ⓧ Close TLDR' : '👉 Don\'t want to scroll? Tap for TLDR') : 'TLDR —'}
           </div>
           <div style={{ display: isMobile() && !showStarTable ? 'none' : 'block' }}>
-            <StarTable>
-              <thead>
-                <tr>
-                  <th>The Situation</th>
-                  <th style={{ width: '33%' }}>My Actions</th>
-                  <th style={{ width: '33%' }}>Results</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+            <TLDRCard>
+              <TLDRCardContent>
+                <TLDRSection>
+                  <TLDRIntroText>
                   After COVID and the 2020 election, audience across <em>The Post</em> dipped over 20% as casual news readers disengaged. This revealed a gap: we were optimized for news on web, not ongoing engagement in the app. We saw an opportunity to focus on habitual app usage, where churn is lowest.
-                    <br /><br />
-                    <strong>🔷 Task at hand:</strong> Reimagine the app's discovery system to keep readers coming back.
-                  </td>
-                  <td style={{ width: '33%' }}>
-                    <ol style={{ 
-                      margin: 0, 
-                      lineHeight: '1.3',
-                      listStyle: 'none',
-                      counterReset: 'item'
-                    }}>
-                      <li style={{ 
-                        marginBottom: '1.5rem',
-                        position: 'relative',
-                        paddingLeft: '1.5rem'
-                      }}>
-                        <span style={{
-                          position: 'absolute',
-                          left: '-4px',
-                          top: '0.05rem',
-                          width: '1.2rem',
-                          height: '1.2rem',
-                          borderRadius: '50%',
-                          border: '1px solid #ddd',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '0.7rem',
-                          fontWeight: '600',
-                          color: '#666',
-                          counterIncrement: 'item',
-                          lineHeight: '1'
-                        }}>
-                          <span style={{ content: 'counter(item)' }}>1</span>
-                        </span>
-                        <a 
-                          href="#habit-tiles" 
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit',
-                            borderBottom: '1px solid transparent',
-                            transition: 'border-bottom 0.2s ease',
-                            cursor: 'pointer'
-                          }}
-                          onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid #ddd'}
-                          onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid transparent'}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const element = document.getElementById('habit-tiles');
-                            if (element) {
-                              const offset = 100;
-                              const elementPosition = element.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - offset;
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                        >
-                          Launched 'Habit Tiles' to drive new behavior loops
-                        </a>
-                      </li>
-                      <li style={{ 
-                        marginBottom: '1.5rem',
-                        position: 'relative',
-                        paddingLeft: '1.5rem'
-                      }}>
-                        <span style={{
-                          position: 'absolute',
-                          left: '-4px',
-                          top: '0.05rem',
-                          width: '1.2rem',
-                          height: '1.2rem',
-                          borderRadius: '50%',
-                          border: '1px solid #ddd',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '0.7rem',
-                          fontWeight: '600',
-                          color: '#666',
-                          lineHeight: '1'
-                        }}>
-                          2
-                        </span>
-                        <a 
-                          href="#for-you-tab" 
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit',
-                            borderBottom: '1px solid transparent',
-                            transition: 'border-bottom 0.2s ease',
-                            cursor: 'pointer'
-                          }}
-                          onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid #ddd'}
-                          onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid transparent'}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const element = document.getElementById('for-you-tab');
-                            if (element) {
-                              const offset = 100;
-                              const elementPosition = element.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - offset;
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                        >
-                          Delivered a personalized 'For You' feed to expand content variety
-                        </a>
-                      </li>
-                      <li style={{ 
-                        marginBottom: '1.5rem',
-                        position: 'relative',
-                        paddingLeft: '1.5rem'
-                      }}>
-                        <span style={{
-                          position: 'absolute',
-                          left: '-4px',
-                          top: '0.05rem',
-                          width: '1.2rem',
-                          height: '1.2rem',
-                          borderRadius: '50%',
-                          border: '1px solid #ddd',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '0.7rem',
-                          fontWeight: '600',
-                          color: '#666',
-                          lineHeight: '1'
-                        }}>
-                          3
-                        </span>
-                        <a 
-                          href="#core-feed" 
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit',
-                            borderBottom: '1px solid transparent',
-                            transition: 'border-bottom 0.2s ease',
-                            cursor: 'pointer'
-                          }}
-                          onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid #ddd'}
-                          onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid transparent'}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const element = document.getElementById('core-feed');
-                            if (element) {
-                              const offset = 100;
-                              const elementPosition = element.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - offset;
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                        >
-                          Redesigned 'Top Stories' using user insights to boost engagement
-                        </a>
-                      </li>
-                      <li style={{ 
-                        marginBottom: '1.5rem',
-                        position: 'relative',
-                        paddingLeft: '1.5rem'
-                      }}>
-                        <span style={{
-                          position: 'absolute',
-                          left: '-4px',
-                          top: '0.05rem',
-                          width: '1.2rem',
-                          height: '1.2rem',
-                          borderRadius: '50%',
-                          border: '1px solid #ddd',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '0.7rem',
-                          fontWeight: '600',
-                          color: '#666',
-                          lineHeight: '1'
-                        }}>
-                          4
-                        </span>
-                        <a 
-                          href="#visual-storytelling" 
-                          style={{ 
-                            textDecoration: 'none', 
-                            color: 'inherit',
-                            borderBottom: '1px solid transparent',
-                            transition: 'border-bottom 0.2s ease',
-                            cursor: 'pointer'
-                          }}
-                          onMouseEnter={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid #ddd'}
-                          onMouseLeave={(e) => (e.target as HTMLAnchorElement).style.borderBottom = '1px solid transparent'}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const element = document.getElementById('visual-storytelling');
-                            if (element) {
-                              const offset = 100;
-                              const elementPosition = element.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - offset;
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                              });
-                            }
-                          }}
-                        >
-                          Rolled out modular layouts tailored to story types
-                        </a>
-                      </li>
-                    </ol>
-                  </td>
-                  <td style={{ width: '33%' }}>
-                    <div style={{ lineHeight: '1.3' }}>
-                      Product metrics improved across depth, breadth, and habit levers.
-                    </div>
-                    <ul style={{ margin: '0.5rem 0 0 0', paddingLeft: '1.2rem', lineHeight: '1.3', listStyleType: 'circle' }}>
-                      <li style={{ marginBottom: '1rem', marginTop: '1rem' }}>Casual readers returned 10% more often</li>
-                      <li style={{ marginBottom: '1rem' }}>Power users formed deeper habits with 42% engagement lift</li>
-                      <li style={{ marginBottom: '1rem' }}>Content discoverability complaints dropped 40%</li>
-                      <li style={{ marginBottom: '1rem' }}>These gains are strongly correlated with subscriber retention</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </StarTable>
+                  </TLDRIntroText>
+                  <TLDRText className="list-lead-in">
+                    To keep subscribers returning, I lead a redesign of the discovery system that launched habit-forming features, personalized content delivery, and improved visual storytelling.
+                  </TLDRText>
+                </TLDRSection>
+                <TLDRSection>
+                  <TLDRSectionTitle>Results</TLDRSectionTitle>
+                  <TLDRResultCard>
+                    <TLDRResultMetric>+10%</TLDRResultMetric>
+                    <TLDRResultText>Casual readers returned more often</TLDRResultText>
+                  </TLDRResultCard>
+                  <TLDRResultCard>
+                    <TLDRResultMetric>+42%</TLDRResultMetric>
+                    <TLDRResultText>Power users formed deeper habits with engagement lift</TLDRResultText>
+                  </TLDRResultCard>
+                  <TLDRResultCard>
+                    <TLDRResultMetric>-40%</TLDRResultMetric>
+                    <TLDRResultText>Content discoverability complaints dropped</TLDRResultText>
+                  </TLDRResultCard>
+
+                </TLDRSection>
+              </TLDRCardContent>
+            </TLDRCard>
           </div>
         </div>
 

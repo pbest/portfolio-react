@@ -34,9 +34,9 @@ const NavWrapper = styled.div<{ white?: boolean }>`
   justify-content: space-between;
   align-items: center;
   min-height: 64px;
-  padding: 1.25rem 2rem 0 2.5rem;
+  padding: 4rem 3rem 0 3rem;
   @media (max-width: 768px) {
-    padding: 0.75rem 1.5rem 0 1.5rem;
+    padding: 1.5rem 0 0 0;
   }
 `;
 
@@ -46,8 +46,8 @@ const LogoSpace = styled.img<{ white?: boolean }>`
   object-fit: contain;
   cursor: pointer;
   @media (max-width: 768px) {
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
   }
 `;
 
@@ -75,6 +75,10 @@ const NavLeft = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  padding-left: 2rem;
+  @media (max-width: 768px) {
+    padding-left: 1.5rem;
+  }
   &:hover ${NameText} {
     opacity: 1;
   }
@@ -84,9 +88,9 @@ const MobileNav = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  padding: 0 1rem;
+  padding: 0 2rem;
   @media (max-width: 768px) {
-    padding-right: 0;
+    padding-right: 1.5rem;
   }
 `;
 
@@ -519,10 +523,10 @@ function AppContent() {
                 return (
                   <NavWrapper white={useWhite}>
                     <NavLeft>
-                      <LogoSpace src={useWhite ? "/images/logo-light.png" : "/images/logo-dark.png"} alt="Paul Best Logo" white={useWhite} onClick={() => window.location.href = 'https://paul.best'} />
+                      <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" white={useWhite} onClick={() => window.location.href = 'https://paul.best'} />
                     </NavLeft>
                     <MobileNav>
-                      <HamburgerMenu white={useWhite} open={menuOpen} setOpen={setMenuOpen} />
+                      <HamburgerMenu white={false} open={menuOpen} setOpen={setMenuOpen} />
                     </MobileNav>
                   </NavWrapper>
                 );
