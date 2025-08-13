@@ -17,7 +17,7 @@ const ACCENT_COLOR_5 = 'rgba(96, 97, 236, 0.05)';
 const SHADOW_500 = 'rgba(50, 50, 93, 0.08) 0px 50px 100px -20px, rgba(0, 0, 0, 0.15) 0px 30px 60px -30px';
 
 const HeroContainer = styled.div`
-  background: linear-gradient(rgb(139 90 255 / 35%), rgba(246, 255, 132, 0.07)), radial-gradient(at center top, rgb(255 167 35), rgb(255, 255, 255)) center top;
+  background: linear-gradient(rgba(139, 90, 255, 0.35), rgba(246, 255, 132, 0.07)), radial-gradient(at center 35%, rgb(255, 167, 35), rgb(255, 255, 255)) center top;
   padding: 4rem 0 7rem 0;
   border-bottom: 1px solid #eee;
   margin: -7rem 1rem 0 1rem;
@@ -28,6 +28,7 @@ const HeroContainer = styled.div`
   @media (max-width: 768px) {
     margin: -7rem 0 0 0;
     border-radius: 0;
+    background: linear-gradient(rgba(139, 90, 255, 0.35), rgba(246, 255, 132, 0.07)), radial-gradient(at center 55%, rgb(255, 167, 35), rgb(255, 255, 255)) center top;
   }
 `;
 
@@ -50,7 +51,7 @@ const HeroSection = styled.section`
   align-items: center;
   gap: 1.5rem;
   @media (max-width: 768px) {
-    padding: 8rem 1.5rem 2rem 1.5rem;
+    padding: 6rem 1.5rem 2rem 1.5rem;
     gap: 1.25rem;
   }
 `;
