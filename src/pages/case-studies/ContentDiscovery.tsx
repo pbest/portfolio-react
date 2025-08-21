@@ -1971,25 +1971,25 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
               <TLDRCardContent>
                 <TLDRSection>
                   <TLDRIntroText>
-                  After COVID and the 2020 election, audience across <em>The Post</em> dipped over 20% as casual news readers disengaged. This revealed a gap: we were optimized for news on web, not ongoing engagement in the app. We saw an opportunity to focus on habitual app usage, where churn is lowest.
+                    I responded to a 20% dip in post-pandemic traffic by leading a redesign of the content discovery system. We launched habit-forming features, personalized content delivery, and improved visual storytelling.
                   </TLDRIntroText>
                   <TLDRText className="list-lead-in">
-                    To keep subscribers returning, I lead a redesign of the discovery system that launched habit-forming features, personalized content delivery, and improved visual storytelling.
+                    After COVID and the 2020 election, audience across <em>The Post</em> dipped over 20% as casual news readers disengaged. This revealed a gap: we were optimized for news on web, not ongoing engagement in the app. We saw an opportunity to focus on habitual app usage, where churn is lowest.
                   </TLDRText>
                 </TLDRSection>
                 <TLDRSection>
                   <TLDRSectionTitle>Results</TLDRSectionTitle>
                   <TLDRResultCard>
                     <TLDRResultMetric>+10%</TLDRResultMetric>
-                    <TLDRResultText>Casual readers returned more often</TLDRResultText>
+                    <TLDRResultText>Weekly return rate -- Casual readers we dropping off less</TLDRResultText>
                   </TLDRResultCard>
                   <TLDRResultCard>
                     <TLDRResultMetric>+42%</TLDRResultMetric>
-                    <TLDRResultText>Power users formed deeper habits with engagement lift</TLDRResultText>
+                    <TLDRResultText>Active days for power users -- they formed deeper habits</TLDRResultText>
                   </TLDRResultCard>
                   <TLDRResultCard>
                     <TLDRResultMetric>-40%</TLDRResultMetric>
-                    <TLDRResultText>Content discoverability complaints dropped</TLDRResultText>
+                    <TLDRResultText>Drop in discovery complaints -- Its easier to find what you're looking for</TLDRResultText>
                   </TLDRResultCard>
 
                 </TLDRSection>
