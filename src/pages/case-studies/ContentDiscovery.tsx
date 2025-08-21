@@ -1981,7 +1981,7 @@ I led a redesign of The Washington Post's app feed to make discovery feel person
                   <TLDRSectionTitle>Results</TLDRSectionTitle>
                   <TLDRResultCard>
                     <TLDRResultMetric>+10%</TLDRResultMetric>
-                    <TLDRResultText>Weekly return rate -- Casual readers we dropping off less</TLDRResultText>
+                    <TLDRResultText>Weekly return rate -- Casual readers were dropping off less</TLDRResultText>
                   </TLDRResultCard>
                   <TLDRResultCard>
                     <TLDRResultMetric>+42%</TLDRResultMetric>
