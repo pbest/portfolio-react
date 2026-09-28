@@ -1,31 +1,26 @@
-import React, { useRef, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-import Hero from './components/sections/Hero';
-import ProjectList from './components/sections/ProjectList';
-import Footer from './components/layout/Footer';
+import React, { useLayoutEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 import CaseStudyTemplate from './pages/CaseStudyTemplate';
 import About from './pages/About';
 import Resume from './pages/Resume';
 import WorkIndex from './pages/WorkIndex';
 import Contact from './pages/Contact';
 import HamburgerMenu from './components/layout/HamburgerMenu';
-import VanillaTilt from 'vanilla-tilt';
-import { MotionProvider, useMotion } from './components/layout/MotionContext';
+import { MotionProvider } from './components/layout/MotionContext';
 import ContentDiscoveryCaseStudy from './pages/case-studies/ContentDiscovery';
+import WireframeHome from './pages/WireframeHome';
 
-const AppContainer = styled.div`
-  font-family: Georgia, 'Times New Roman', Times, serif;
+const AppContainer = styled.div<{ $home?: boolean }>`
+  font-family: ${({ $home }) =>
+    $home ? 'Arial, Helvetica, sans-serif' : "Georgia, 'Times New Roman', Times, serif"};
   width: 100%;
   margin: 0;
   padding: 0;
-  background: #fff;
-  overflow-x: hidden;
+  background: ${({ $home }) => ($home ? 'transparent' : '#fff')};
+  overflow-x: ${({ $home }) => ($home ? 'clip' : 'hidden')};
 `;
 
-const Spacer = styled.div`
-  height: 100vh;
-`;
 
 const NavWrapper = styled.div<{ white?: boolean }>`
   z-index: 100;
@@ -51,26 +46,6 @@ const LogoSpace = styled.img<{ white?: boolean }>`
   }
 `;
 
-const LogoSpaceLarge = styled(LogoSpace)`
-  width: 60px;
-  height: 60px;
-  @media (max-width: 768px) {
-    width: 55.2px;
-    height: 55.2px;
-  }
-`;
-
-const NameText = styled.span`
-  opacity: 0;
-  margin-left: 0.5rem;
-  font-family: 'Space Mono', 'Fira Mono', 'Menlo', 'monospace';
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  transition: opacity 0.2s;
-`;
-
 const NavLeft = styled.div`
   display: flex;
   align-items: center;
@@ -78,9 +53,6 @@ const NavLeft = styled.div`
   padding-left: 2rem;
   @media (max-width: 768px) {
     padding-left: 1.5rem;
-  }
-  &:hover ${NameText} {
-    opacity: 1;
   }
 `;
 
@@ -94,268 +66,9 @@ const MobileNav = styled.div`
   }
 `;
 
-const NavLink = styled(Link)`
-  color: #222;
-  text-decoration: none;
-  font-family: 'Space Mono', 'Fira Mono', 'Menlo', 'monospace';
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
-const PageContainer = styled.div`
-  max-width: 85vw;
-  margin: 0 auto;
-  padding: 2rem 1rem 1rem 1rem;
-  padding-left: 0;
-`;
 
-// --- Homepage Layout ---
-const HomeHero = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 4rem 0 0rem 0;
-  padding-top: 10rem;
-  min-height: 40vh;
-  @media (max-width: 600px) {
-    padding: 2rem 0 1rem 0;
-  }
-`;
-
-const Headline = styled.h1`
-  font-family: 'Playfair Display', serif;
-  font-size: 7vw;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: #222;
-`;
-
-const Subhead = styled.p`
-  font-family: 'TT Ramillas', serif;
-  font-size: 1.5rem;
-  color: #555;
-  margin-bottom: 2.5rem;
-  max-width: 1000px;
-  line-height: 1.6;
-  opacity: 0.8;
-`;
-
-const CTAGroup = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-`;
-
-const CTAButton = styled(Link)`
-  background: none;
-  color: #222;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  font-size: 14px;
-  font-family: 'Space Mono', 'Fira Mono', 'Menlo', 'monospace';
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.18s;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const CaseStudyGrid = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2.5rem;
-  margin: 2.5rem auto 4rem auto;
-  margin-top: 0;
-  max-width: 85vw;
-  width: 100%;
-  padding-top: 0;
-  @media (max-width: 1200px) {
-    max-width: 98vw;
-    gap: 1.5rem;
-  }
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-`;
-
-const CaseCard = styled(Link)<{ bg?: string }>`
-  display: flex;
-  flex-direction: column;
-  background: ${({ bg }) => bg || '#222'};
-  border-radius: 1.25rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  padding: 0;
-  text-decoration: none;
-  color: #111;
-  border: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  min-height: 520px;
-  overflow: hidden;
-  &:hover {
-    box-shadow: 0 4px 24px rgba(0,0,0,0.16);
-    /* background: #111; */
-  }
-`;
-
-const CardContent = styled.div`
-  padding: 2rem 1.5rem 0 1.5rem;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-`;
-
-const CardVisual = styled.div`
-  width: 100%;
-  height: 300px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  border-radius: 0 0 1.25rem 1.25rem;
-  margin-top: auto;
-  overflow: hidden;
-
-  img, svg {
-    width: auto;
-    height: 180%;
-    object-fit: contain;
-  }
-`;
-
-const CaseTitle = styled.h2`
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  font-family: 'PolySans', sans-serif;
-`;
-
-const CaseSummary = styled.p`
-  font-size: 1rem;
-  color: #111;
-  margin-bottom: 0.5rem;
-`;
-
-const QuoteSection = styled.section`
-  margin: 4rem 0 0 0;
-  padding: 2rem 0 0 0;
-  border-top: 1px dashed #e0e0e0;
-  text-align: center;
-`;
-
-const Quote = styled.blockquote`
-  font-size: 1.4rem;
-  font-style: italic;
-  color: #555;
-  margin: 0 auto;
-  max-width: 600px;
-`;
-
-const CaseCardWithTilt: React.FC<{ to: string; bg?: string; children: React.ReactNode }> = ({ to, bg, children }) => {
-  const tiltRef = useRef<HTMLAnchorElement>(null);
-  const { isMotionReduced } = useMotion();
-
-  useEffect(() => {
-    const tiltNode = tiltRef.current;
-    if (tiltNode && !isMotionReduced) {
-      VanillaTilt.init(tiltNode, {
-        max: 15,
-        speed: 400,
-        glare: true,
-        'max-glare': 0.2,
-        scale: 1.0, // No scale on hover
-      });
-      return () => {
-        (tiltNode as any).vanillaTilt.destroy();
-      };
-    }
-  }, [isMotionReduced]);
-
-  return <CaseCard ref={tiltRef} to={to} bg={bg}>{children}</CaseCard>;
-};
-
-const HomepageBodyStyle = createGlobalStyle`
-  html, body, #root {
-    background-color: #fff !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-`;
-
-const Homepage = () => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <HomepageBodyStyle />
-      <AppContainer>
-        <PageContainer>
-          <HomeHero>
-            <Headline>Paul Best</Headline>
-            <Subhead>
-              I'm a product design leader who specializes in discovery, personalization, and building design cultures rooted in craft. I've led product teams at The Washington Post and design studios alike, shipping thoughtful systems that drive habit, clarity, and delight.
-            </Subhead>
-          </HomeHero>
-        </PageContainer>
-        <CaseStudyGrid>
-          <CaseCardWithTilt to="/work/feed" bg="linear-gradient(150deg, rgb(119, 120, 253), rgb(132 179 235) 69%)">
-            <CardContent>
-              <CaseTitle>Reimagining Content Discovery</CaseTitle>
-              <CaseSummary>Personalized the app feed at The Washington Post, driving a 10% lift in habitual use and 42% fewer complaints.</CaseSummary>
-              <span>→</span>
-            </CardContent>
-            <CardVisual>
-              <img src="/images/phone-mockup.png" alt="Content Discovery case study mockup" />
-            </CardVisual>
-          </CaseCardWithTilt>
-          <CaseCardWithTilt to="/work/audio" bg="#DFA4F1">
-            <CardContent>
-              <CaseTitle>AI-Powered Listening Experience</CaseTitle>
-              <CaseSummary>Launched AI-generated audio across articles, increasing listen starts by 130% and expanding engagement.</CaseSummary>
-              <span>→</span>
-            </CardContent>
-            <CardVisual>
-              <img src="/images/phone-mockup.png" alt="AI-Powered Listening case study mockup" />
-            </CardVisual>
-          </CaseCardWithTilt>
-          <CaseCardWithTilt to="/work/system" bg="linear-gradient(164deg, rgb(246 137 108), rgb(255 184 147) 69%)">
-            <CardContent>
-              <CaseTitle>Design Systems at Scale</CaseTitle>
-              <CaseSummary>Built a design system adopted by 1,000+ engineering projects, improving velocity, accessibility, and collaboration.</CaseSummary>
-              <span>→</span>
-            </CardContent>
-            <CardVisual>
-              <img src="/images/phone-mockup.png" alt="Design Systems case study mockup" />
-            </CardVisual>
-          </CaseCardWithTilt>
-        </CaseStudyGrid>
-        <PageContainer>
-          <QuoteSection>
-            <Quote>"Protecting craft while aligning to outcomes."</Quote>
-          </QuoteSection>
-        </PageContainer>
-        <Footer />
-      </AppContainer>
-    </>
-  );
-};
-
-// --- End Homepage Layout ---
-
-// --- Case Study Pages ---
+// Case study pages keep their existing templates.
 const AudioCase = () => {
   const navigate = useNavigate();
   return (
@@ -509,10 +222,20 @@ function App() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function AppContent() {
   const navigate = useNavigate();
+  const isHome = useLocation().pathname === '/';
   return (
-    <AppContainer>
+    <AppContainer $home={isHome}>
+      <ScrollToTop />
       <Routes>
         <Route
           path="/work/feed"
@@ -523,7 +246,7 @@ function AppContent() {
                 return (
                   <NavWrapper white={useWhite}>
                     <NavLeft>
-                      <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" white={useWhite} onClick={() => window.location.href = 'https://paul.best'} />
+                      <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" white={useWhite} onClick={() => navigate('/')} />
                     </NavLeft>
                     <MobileNav>
                       <HamburgerMenu white={false} open={menuOpen} setOpen={setMenuOpen} />
@@ -538,16 +261,18 @@ function AppContent() {
           path="*"
           element={
             <>
-              <NavWrapper>
-                <NavLeft>
-                  <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" onClick={() => window.location.href = 'https://paul.best'} />
-                </NavLeft>
-                <MobileNav>
-                  <HamburgerMenu />
-                </MobileNav>
-              </NavWrapper>
+              {!isHome && (
+                <NavWrapper>
+                  <NavLeft>
+                    <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" onClick={() => navigate('/')} />
+                  </NavLeft>
+                  <MobileNav>
+                    <HamburgerMenu />
+                  </MobileNav>
+                </NavWrapper>
+              )}
               <Routes>
-                <Route path="/" element={<Homepage />} />
+                <Route path="/" element={<WireframeHome />} />
                 <Route path="/work" element={<WorkIndex />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/resume" element={<Resume />} />

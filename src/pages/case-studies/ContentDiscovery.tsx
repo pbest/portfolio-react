@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/layout/Footer';
 import AnchorNav from '../../components/ui/AnchorNav';
 import Annotation from '../../components/ui/Annotation';
+import { HabitTilesVisual } from '../../components/HabitTilesVisual';
 
 interface ContentDiscoveryCaseStudyProps {
   renderNav?: (white: boolean, menuOpen: boolean, setMenuOpen: (open: boolean) => void) => React.ReactNode;
@@ -1119,142 +1120,6 @@ const KeyInitiativesSection = styled.div`
   }
 `;
 
-const HabitTilesMarginAnimation: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  const [showTiles, setShowTiles] = useState([false, false, false, false]);
-  const [moveToCenter, setMoveToCenter] = useState(false);
-  const [fadeOutTiles, setFadeOutTiles] = useState([false, false, false, false]);
-
-  // Function to trigger animation
-  const triggerAnimation = () => {
-    setInView(true);
-  };
-
-  // Listen for custom event when anchor link is clicked
-  useEffect(() => {
-    const handleAnchorClick = () => {
-      triggerAnimation();
-    };
-
-    window.addEventListener('habit-tiles-animation-trigger', handleAnchorClick);
-    return () => {
-      window.removeEventListener('habit-tiles-animation-trigger', handleAnchorClick);
-    };
-  }, []);
-
-  // Intersection Observer
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.intersectionRatio >= 0.65) {
-          setInView(true);
-        } else {
-          setInView(false);
-          setShowTiles([false, false, false, false]);
-          setMoveToCenter(false);
-          setFadeOutTiles([false, false, false, false]);
-        }
-      },
-      { threshold: 0.65 }
-    );
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
-    };
-  }, []);
-
-  // Staggered appearance
-  useEffect(() => {
-    if (inView) {
-      let timeouts: NodeJS.Timeout[] = [];
-      // Add a delay before starting the staggered animation
-      timeouts.push(setTimeout(() => {
-        for (let i = 0; i < 4; i++) {
-          timeouts.push(setTimeout(() => {
-            setShowTiles(prev => {
-              const next = [...prev];
-              next[i] = true;
-              return next;
-            });
-          }, 400 * i));
-        }
-        // After all are visible, move to center and fade out
-        timeouts.push(setTimeout(() => setMoveToCenter(true), 2000));
-      }, 300)); // 300ms initial delay
-      return () => timeouts.forEach(clearTimeout);
-    }
-  }, [inView]);
-
-  // Staggered fade out
-  useEffect(() => {
-    if (moveToCenter) {
-      let timeouts: NodeJS.Timeout[] = [];
-      for (let i = 0; i < 4; i++) {
-        timeouts.push(setTimeout(() => {
-          setFadeOutTiles(prev => {
-            const next = [...prev];
-            next[i] = true;
-            return next;
-          });
-        }, 350 + 90 * i)); // 0.35s initial delay, then 0.09s stagger
-      }
-      return () => timeouts.forEach(clearTimeout);
-    }
-  }, [moveToCenter]);
-
-  // Positions for 2 left, 2 right (relative to main image)
-  const positions = [
-    { left: -250, top: '27%' },    // habit-tile-1 (left, 30% down) - moved further left
-    { left: -200, top: '44%' },    // habit-tile-2 (left, 65% down) - moved up to align with bottom
-    { right: -250, top: '27%' },   // habit-tile-3 (right, 30% down) - moved further right
-    { right: -200, top: '45%' }    // habit-tile-4 (right, 65% down) - moved up to align with bottom
-  ];
-
-  // Translate values to move each tile to the center of the main image (relative to their anchor)
-  const centerTransforms = [
-    'scale(1) translate(250px, 0)',   // left top: move right
-    'scale(1) translate(200px, 0)',  // left bottom: move right
-    'scale(1) translate(-250px, 0)',  // right top: move left
-    'scale(1) translate(-200px, 0)', // right bottom: move left
-  ];
-
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
-      <div ref={containerRef} style={{ position: 'relative', display: 'inline-block' }}>
-        <img src="/images/case-study-1/habit-tiles-3.png" alt="Habit Tiles screenshot" style={{ maxWidth: '430px', width: '100%', borderRadius: '16px', display: 'block', position: 'relative', zIndex: 2 }} />
-        {['1', '2', '3', '4'].map((n, i) => {
-          const baseStyle: React.CSSProperties = {
-            position: 'absolute',
-            width: 180,
-            height: 'auto',
-            opacity: showTiles[i] ? 1 : 0,
-            transition: 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)',
-            zIndex: 1,
-            ...positions[i],
-            transform: showTiles[i] ? 'scale(1)' : 'scale(0.8)',
-          };
-          const animateStyle: React.CSSProperties = fadeOutTiles[i]
-            ? {
-                opacity: 0,
-                transform: centerTransforms[i],
-                transition: 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)',
-              }
-            : {};
-          return (
-            <img
-              key={n}
-              src={`/images/case-study-1/habit-tiles/habit-tile-${n}.png`}
-              alt={`Habit Tile ${n}`}
-              style={{ ...baseStyle, ...animateStyle }}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
 const teamColors: { [key: string]: string } = {
   Product: '#4285F4',
   'Design (My Role)': '#34A853',
@@ -2118,7 +1983,7 @@ We used the dual lens of editorial integrity and user-centered personalization, 
 
           <SubSectionTitle id="habit-tiles" data-counter="1/4">Launching Habit Tiles</SubSectionTitle>
           <BodyText>I had the idea for Habit Tiles after hearing Jeff Bezos suggest that our products should better educate users on the breadth of what The Post offers — not just deliver headlines. I connected that insight to data showing readers often skimmed the first 25% of the feed and bounced, an existing habit loop focused on catching up on the top news. I worked across product, design, and engineering to build buy-in that this experiment could enhance existing behavior by anticipating & nudging users toward deeper, more habitual engagement.</BodyText>
-          <HabitTilesMarginAnimation />
+          <HabitTilesVisual />
           <InsightBlock>
             <h4><span style={{ fontSize: '130%', verticalAlign: 'middle' }}>⚡️</span> Key Insight</h4>
             <p>Context matters: We saw a significant boost in engagement when we iterated on the labels associated with each tile. Our v1 had the same labels for all, but <span style={{ background: '#fff7c2', borderRadius: '6px', padding: '0.1em 0.3em' }}>once we surfaced the why</span>: "trending", "followed topic", "continued reading", etc <span style={{ background: '#fff7c2', borderRadius: '6px', padding: '0.1em 0.3em' }}>people connected with the content more deeply</span>.</p>
