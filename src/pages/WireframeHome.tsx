@@ -262,7 +262,7 @@ const Page = styled.div<{ $theme: ThemeChoice }>`
   .logo-mark circle {
     opacity: 1;
     transition:
-      fill 1600ms cubic-bezier(0.77, 0, 0.175, 1),
+      fill 280ms cubic-bezier(0.23, 1, 0.32, 1),
       opacity 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -1205,12 +1205,7 @@ const Page = styled.div<{ $theme: ThemeChoice }>`
   }
 `;
 
-const markColors = ['#ff803e', '#00d1ff', '#1dda7c', '#fc77e0', '#ffd65a', '#7daaff', '#ff763a'];
-
-function nextMarkColor(current: string) {
-  const choices = markColors.filter((color) => color !== current);
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+const markCycle = ['#FF0000', '#7daaff', '#ffd65a'];
 
 function LogoMark({ color }: { color: string }) {
   return (
@@ -1362,8 +1357,11 @@ const WireframeHome = () => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (media.matches) return;
     const id = window.setInterval(() => {
-      setMarkColor((current) => nextMarkColor(current));
-    }, 3200);
+      setMarkColor((current) => {
+        const index = markCycle.indexOf(current);
+        return markCycle[(index + 1) % markCycle.length];
+      });
+    }, 5000);
     return () => window.clearInterval(id);
   }, []);
 
@@ -1423,10 +1421,10 @@ const WireframeHome = () => {
               </h1>
               <div className="hero-blurb">
                 <p>
-                  I shape AI experiences, mobile products, and the systems that make complex work easier to navigate. As a designer, I brought FigJam to market, poured myself into so many little details, and grew it into a tool people love using
+                  I’m a generalist who helps teams aim higher: creating novel solutions, shipping beautiful & useful products, all while having fun. At Rippling, I lead design on some of our AI platform’s most complex problems, including how AI takes action, creates and edits work, and connects to other tools.
                 </p>
                 <p>
-                  In lots of parts of my life, I'm a generalist. I'm good at helping teams be more ambitious together. To imagine novel solutions, to ship higher quality products, and most importantly—to have fun through it all.
+                  Before Rippling, I grew and led The Washington Post’s product design organization, leading four teams and 30+ designers. My work has also spanned mobile products and design systems.
                 </p>
               </div>
             </div>

@@ -246,7 +246,7 @@ function AppContent() {
                 return (
                   <NavWrapper white={useWhite}>
                     <NavLeft>
-                      <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" white={useWhite} onClick={() => navigate('/')} />
+                      <LogoSpace src="/images/logo-dark.png" alt="Paul Best Logo" white={useWhite} onClick={() => { window.location.href = 'https://paul.best'; }} />
                     </NavLeft>
                     <MobileNav>
                       <HamburgerMenu white={false} open={menuOpen} setOpen={setMenuOpen} />
